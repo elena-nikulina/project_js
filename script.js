@@ -13,3 +13,4 @@ let adaptive='yes';
 
 alert("Первое д.з.");
 console.log('First homework');
+
