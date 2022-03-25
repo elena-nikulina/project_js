@@ -13,9 +13,7 @@ console.log(screens.length);
 console.log('Стоимость верстки экранов ' + (screenPrice) + ' рублей/ долларов/гривен/юани');
 console.log('Стоимость разработки сайта ' + (fullPrice) + ' рублей/ долларов/гривен/юани');
 
-let scr=screens.toLowerCase();
-let arr=scr.split('');
-console.log(arr);
+console.log((screens.toLowerCase()).split(', '));
 console.log('Процент отката посреднику за работу ' + (fullPrice * (rollback/100)));
 
 
