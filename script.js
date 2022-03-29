@@ -4,14 +4,14 @@ let title=prompt('Как называется ваш проект?', 'project');
 let screens=prompt('Какие типы экранов нужно разработать?', 'Простые, Сложные, Интерактивные');
 let screenPrice=+prompt('Сколько будет стоить данная работа?', '1000000');
 let rollback=99;
-let fullPrice=1000000;
+
 let adaptive=confirm('Нужен ли адаптив на сайте?');
 
 let service1 = prompt('Какой дополнительный тип услуги нужен?', 'Липкий хедер');
 let servicePrice1 = +prompt('Сколько это будет стоить?', '250000');
 let service2 = prompt('Какой дополнительный тип услуги нужен?', 'прибить футер к низу');
 let servicePrice2 = +prompt('Сколько это будет стоить?', '2000000');
-fullPrice = screenPrice + servicePrice1 + servicePrice2;
+let fullPrice = screenPrice + servicePrice1 + servicePrice2;
 
 let servicePercentPrice = Math.ceil(fullPrice - (fullPrice * (rollback/100)));
 
