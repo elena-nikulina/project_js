@@ -40,13 +40,13 @@ const getAllServicePrices = function(price1, price2) {
     return price1 + price2;
 }
 
-let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+
 
 function getFullPrice(allprice1, allprice2) {
     return allprice1 + allprice2;
 }
 
-fullPrice = getFullPrice(screenPrice, allServicePrices);
+
 
 const getTitle = function(str) {
     str.trimStart();
@@ -57,30 +57,20 @@ const getTitle = function(str) {
     return str;
 }
 
-getTitle(title);
-
-function getServicePercentPrices(sumItog, sum0) {
+function getServicePercentPrices(sumItog) {
+    let sum0 = sumItog*(rollback/100);
     return sumItog - sum0;
 }
 
-servicePercentPrice = getServicePercentPrices(fullPrice, fullPrice * (rollback/100));
+let title1 = getTitle(title);
+let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+fullPrice = getFullPrice(screenPrice, allServicePrices);
+servicePercentPrice = getServicePercentPrices(fullPrice);
 
-fullPrice - (fullPrice * (rollback/100))
-
-showTypeOf(title);
+showTypeOf(title1);
 showTypeOf(screenPrice);
 showTypeOf(adaptive);
 
 console.log(getRollbackMessage(fullPrice));
-//console.log(typeof title);
-//console.log(typeof fullPrice);
-//console.log(typeof adaptive);
-console.log(servicePercentPrice);
-
-//console.log(screens.length);
-//console.log('Стоимость верстки экранов ' + (screenPrice) + ' рублей/ долларов/гривен/юани');
-//console.log('Стоимость разработки сайта ' + (fullPrice) + ' рублей/ долларов/гривен/юани');
-
-//console.log((screens.toLowerCase()).split(', '));
-//console.log('Процент отката посреднику за работу ' + (fullPrice * (rollback/100)));
+console.log((screens.toLowerCase()).split(', '));
 console.log(servicePercentPrice);
