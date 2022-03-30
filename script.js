@@ -12,9 +12,9 @@ let servicePrice1 = +prompt('Сколько это будет стоить?', '2
 let service2 = prompt('Какой дополнительный тип услуги нужен?', 'прибить футер к низу');
 let servicePrice2 = +prompt('Сколько это будет стоить?', '2000000');
 let fullPrice = screenPrice + servicePrice1 + servicePrice2;
-
+let allServicePrices = 0;
 let servicePercentPrice = Math.ceil(fullPrice - (fullPrice * (rollback/100)));
-
+let sum0 = 0;
 const showTypeOf = function(variable) {
     console.log(variable, typeof variable);
 }
@@ -58,16 +58,16 @@ const getTitle = function(str) {
 }
 
 function getServicePercentPrices(sumItog) {
-    let sum0 = sumItog*(rollback/100);
+    sum0 = sumItog*(rollback/100);
     return sumItog - sum0;
 }
 
-let title1 = getTitle(title);
-let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+title = getTitle(title);
+allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
 fullPrice = getFullPrice(screenPrice, allServicePrices);
 servicePercentPrice = getServicePercentPrices(fullPrice);
 
-showTypeOf(title1);
+showTypeOf(title);
 showTypeOf(screenPrice);
 showTypeOf(adaptive);
 
