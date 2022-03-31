@@ -57,6 +57,8 @@ const getRollbackMessage = function(price) {
 const getAllServicePrices = function() {
 
     let sum = 0;
+    let count = 0;
+    let sum1 = 0;
 
     for (let i = 0; i < 2; i++) {
 
@@ -67,12 +69,18 @@ const getAllServicePrices = function() {
         }
 
         do {
-            sum += +prompt('Сколько это будет стоить?');
+            if (count !== 0) {
+                sum1 = sum;
+                sum = 0;
+            }
+            count++;
+            sum += parseFloat(prompt('Сколько это будет стоить?'));
+            if ((typeof sum1 == Number) && (sum1 !==0) && (count !==0)) {
+                sum = sum + sum1;
+            }
 
         } while (!isNumber(sum));
 
-
-        console.log(sum, typeof sum);
     }
 
     return sum;
