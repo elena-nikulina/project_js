@@ -70,16 +70,17 @@ const getAllServicePrices = function() {
 
         do {
             if (count !== 0) {
-                sum1 = sum;
+               
                 sum = 0;
             }
             count++;
             sum += parseFloat(prompt('Сколько это будет стоить?'));
-            if ((typeof sum1 == Number) && (sum1 !==0) && (count !==0)) {
-                sum = sum + sum1;
-            }
+            sum1 = sum;
+            
 
-        } while (!isNumber(sum));
+        } while (!isNumber(sum) && !isNumber(sum1));
+
+        sum = sum + sum1;
 
     }
 
