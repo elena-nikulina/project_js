@@ -57,11 +57,10 @@ const getRollbackMessage = function(price) {
 const getAllServicePrices = function() {
 
     let sum = 0;
-    let count = 0;
-    let sum1 = 0;
-
     for (let i = 0; i < 2; i++) {
 
+        let sum1 = 0;
+        
         if (i == 0) {
             service1 = prompt('Какой дополнительный тип услуги нужен?', 'Липкий хедер');
         } else if (i == 1) {
@@ -69,18 +68,13 @@ const getAllServicePrices = function() {
         }
 
         do {
-            if (count !== 0) {
-               
-                sum = 0;
-            }
-            count++;
-            sum += parseFloat(prompt('Сколько это будет стоить?'));
-            sum1 = sum;
+           
+            sum1 = parseFloat(prompt('Сколько это будет стоить?'));
             
 
-        } while (!isNumber(sum) && !isNumber(sum1));
+        } while (!isNumber(sum1));
 
-        sum = sum + sum1;
+        sum += +sum1;
 
     }
 
