@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 const appData = {
     title: '',
     screens: '',  
@@ -93,9 +91,9 @@ const appData = {
     },
 
     logger: function() {
-        console.log(appData.fullPrice);
-        console.log(appData.servicePercentPrice);
-        console.log(appData.title);
+        //console.log(appData.fullPrice);
+        //console.log(appData.servicePercentPrice);
+        //console.log(appData.title);
 
         for (let key in appData) {
             console.log(appData[key]); 
@@ -103,21 +101,26 @@ const appData = {
     },
 
     start: function() {
+        appData.isNumber();
         appData.asking();
-
         appData.allServicePrices = appData.getAllServicePrices();
         appData.fullPrice = appData.getFullPrice();
         appData.servicePercentPrice = appData.getServicePercentPrices();
         appData.logger();
-    }
+    },
+
+    isNumber: function(num) {
+        return !isNaN((parseFloat(num))) && isFinite(num);
 
 }
 
-const isNumber = function(num) {
-    return !isNaN((parseFloat(num))) && isFinite(num);
+//const isNumber = function(num) {
+ //   return !isNaN((parseFloat(num))) && isFinite(num);
 }
 
+//appData.isNumber();
 appData.start();
+
   
         
         
