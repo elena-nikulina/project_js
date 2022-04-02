@@ -20,7 +20,7 @@ const appData = {
         do {
             appData.screenPrice=+prompt('Сколько будет стоить данная работа?');
     
-        } while (!isNumber(appData.screenPrice));
+        } while (!appData.isNumber(appData.screenPrice));
     
         appData.adaptive=confirm('Нужен ли адаптив на сайте?');
     },
@@ -63,7 +63,7 @@ const appData = {
                 sum1 = parseFloat(prompt('Сколько это будет стоить?'));
                 
     
-            } while (!isNumber(sum1));
+            } while (!appData.isNumber(sum1));
     
             sum += +sum1;
     
