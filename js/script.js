@@ -1,6 +1,52 @@
 'use strict';
 
-const appData = {
+let title1 = document.getElementsByTagName('h1')[0];
+let buttons = document.getElementsByClassName('handler_btn');
+let plus = document.querySelector('.screen-btn');
+let others = document.querySelectorAll('.other-items');
+
+let order1 = [];
+let order2 = [];
+
+let range = document.querySelector('.rollback').querySelector('input[type="range"]');
+let rangeValue = document.querySelector('.rollback').querySelector('span.range-value');
+
+let totals = document.getElementsByClassName('total-input');
+
+let screens = document.querySelectorAll('.screen');
+
+console.log(title1);
+ for(let button of buttons) {
+     console.log(button);
+ }
+console.log(plus);
+
+    for(let i = 0; i < others.length; i++) {
+        if (others[i].classList.contains('percent')) {
+            order1.push(others[i]);
+        }
+    }
+    console.log(order1);
+
+    for(let i = 0; i < others.length; i++) {
+        if (others[i].classList.contains('number')) {
+            order2.push(others[i]);
+        }
+    }
+    console.log(order2);
+
+console.log(range);
+console.log(rangeValue);
+
+for (let j = 0; j < totals.length; j++) {
+    console.log(totals[j]);
+}
+
+for (let screen of screens) {
+    console.log(screen);
+}
+
+/*const appData = {
     title: '',
     screens: [],  
     screenPrice: 0,
@@ -134,9 +180,9 @@ const appData = {
 
 }
 
-appData.start();
+appData.start();*/
 
-  
+
         
         
 
