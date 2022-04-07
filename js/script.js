@@ -10,10 +10,19 @@ const rangeValue = document.querySelector('.rollback span.range-value');
 let screens = document.querySelectorAll('.screen');
 
 console.log(title1);
+
+const btnHHandlers = [];
+
+for (let j = 0; j < buttons.length; j++) {
+    btnHHandlers[j] = buttons[j];
+}
+
+
  for(let button of buttons) {
      console.log(button);
  }
-console.log(plus);
+//console.log(plus);
+const btnPlus = plus;
 
 const order1 = document.querySelector('.other-items.percent');
 const order2 = document.querySelector('.other-items.number');
@@ -25,8 +34,10 @@ console.log(range);
 console.log(rangeValue);
 
 const totals = document.getElementsByClassName('total-input');
+const inputsTotal = [];
 for (let j = 0; j < totals.length; j++) {
-    console.log(totals[j]);
+    //console.log(totals[j]);
+    inputsTotal[j] = totals[j];
 }
 
 for (let screen of screens) {
