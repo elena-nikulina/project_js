@@ -11,19 +11,10 @@ let screens = document.querySelectorAll('.screen');
 
 console.log(title1);
 
-let  btnHHandlers1;
-let  btnHHandlers2;
-
-for (let j = 0; j < buttons.length; j++) {
-    btnHHandlers1 = buttons[0];
-    btnHHandlers2 = buttons[1];
-}
+ const  btnHHandlers1 = buttons[0];
+ const  btnHHandlers2 = buttons[1];
 
 
- for(let button of buttons) {
-     console.log(button);
- }
-//console.log(plus);
 const btnPlus = plus;
 
 const order1 = document.querySelector('.other-items.percent');
@@ -36,20 +27,14 @@ console.log(range);
 console.log(rangeValue);
 
 const totals = document.getElementsByClassName('total-input');
-let inputsTotal1;
-let inputsTotal2;
-let inputsTotal3;
-let inputsTotal4;
-let inputsTotal5;
 
-for (let j = 0; j < totals.length; j++) {
-    //console.log(totals[j]);
-    inputsTotal1 = totals[0];
-    inputsTotal2 = totals[1];
-    inputsTotal3 = totals[2];
-    inputsTotal4 = totals[3];
-    inputsTotal5 = totals[4];
-}
+
+ const inputsTotal1 = totals[0];
+ const inputsTotal2 = totals[1];
+ const inputsTotal3 = totals[2];
+ const inputsTotal4 = totals[3];
+ const inputsTotal5 = totals[4];
+
 
 for (let screen of screens) {
     console.log(screen);
