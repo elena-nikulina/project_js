@@ -2,7 +2,7 @@
 
 const title1 = document.getElementsByTagName('h1')[0];
 const buttons = document.getElementsByClassName('handler_btn');
-const plus = document.querySelector('.screen-btn');
+const btnPlus = document.querySelector('.screen-btn');
 
 const range = document.querySelector('.rollback input[type="range');
 const rangeValue = document.querySelector('.rollback span.range-value');
@@ -11,17 +11,14 @@ let screens = document.querySelectorAll('.screen');
 
 console.log(title1);
 
- const  btnHHandlers1 = buttons[0];
- const  btnHHandlers2 = buttons[1];
+ const  btnHHandlersCount = buttons[0];
+ const  btnHHandlersReset = buttons[1];
 
-
-const btnPlus = plus;
-
-const order1 = document.querySelector('.other-items.percent');
-const order2 = document.querySelector('.other-items.number');
+const orderItemsPercent = document.querySelector('.other-items.percent');
+const orderItemsNumber = document.querySelector('.other-items.number');
     
-    console.log(order1);
-    console.log(order2);
+    console.log(orderItemsPercent);
+    console.log(orderItemsNumber);
 
 console.log(range);
 console.log(rangeValue);
@@ -29,11 +26,11 @@ console.log(rangeValue);
 const totals = document.getElementsByClassName('total-input');
 
 
- const inputsTotal1 = totals[0];
- const inputsTotal2 = totals[1];
- const inputsTotal3 = totals[2];
- const inputsTotal4 = totals[3];
- const inputsTotal5 = totals[4];
+ const inputTotalCounterPrice = totals[0];
+ const inputsTotalQuavontity = totals[1];
+ const inputsTotalServicesPrice = totals[2];
+ const inputsTotalResultPrice = totals[3];
+ const inputsTotalResultRollback = totals[4];
 
 
 for (let screen of screens) {
