@@ -11,10 +11,11 @@ let screens = document.querySelectorAll('.screen');
 
 console.log(title1);
 
-const btnHHandlers = [];
+
 
 for (let j = 0; j < buttons.length; j++) {
-    btnHHandlers[j] = buttons[j];
+    const btnHHandlers1 = buttons[0];
+    const btnHHandlers2 = buttons[1];
 }
 
 
@@ -34,10 +35,14 @@ console.log(range);
 console.log(rangeValue);
 
 const totals = document.getElementsByClassName('total-input');
-const inputsTotal = [];
+
 for (let j = 0; j < totals.length; j++) {
     //console.log(totals[j]);
-    inputsTotal[j] = totals[j];
+    const inputsTotal1 = totals[0];
+    const inputsTotal2 = totals[1];
+    const inputsTotal3 = totals[2];
+    const inputsTotal4 = totals[3];
+    const inputsTotal5 = totals[4];
 }
 
 for (let screen of screens) {
