@@ -115,14 +115,21 @@ const appData = {
             const input = screen.querySelector('input');
             const count = screen.querySelector('input');
             const selectName = select.options[select.selectedIndex].textContent;
-            while (+select.value === 0 || +input.value === 0 || selectName === '') {
+            startBtn.disabled = true;
+            if (+select.value === 0 || +input.value === 0 || selectName === '') {
                 startBtn.disabled = true;
+                console.log('error');
+            } else {
+                startBtn.disabled = false;
+                console.log('false');
+                
             }
             appData.screens.push({
                 id: index, 
                 name: selectName, 
                 price: +select.value * +input.value,
                 count: +count.value
+                
             });
         });
         
