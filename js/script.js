@@ -103,6 +103,11 @@ const appData = {
     for(let screenSelect of screensSelects) {
       screenSelect.disabled = true;
     }
+    if (screens.length > 1) {
+      for(let n = 0; n < screens.length; n++) {
+        screens[n].disabled = true;
+      }
+    }
     for(let screenInput of screensInputs) {
       screenInput.disabled = true;
     }
@@ -114,14 +119,55 @@ const appData = {
   reset: function() {
     startBtn.style.display = 'block';
     resetBtn.style.display = 'none';
+    screensSelects = document.querySelectorAll('.screen select');
     for(let screenSelect of screensSelects) {
       screenSelect.disabled = false;
     }
-    
+    screensInputs = document.querySelectorAll('.screen input[type="text"]');
+    console.log(screensInputs);
+
+
+
     for(let screenInput of screensInputs) {
       screenInput.disabled = false;
       screenInput.value = '';
     }
+    orderItemsPercent.forEach((item) => {
+      const check = item.querySelector("input[type=checkbox]");
+      //const label = item.querySelector("label");
+      const input = item.querySelector("input[type=text]");
+      input.value = '';
+      if (check.checked) {
+        check.checked = false;
+        
+        //appData.servicesPercent[label.textContent] = +input.value;
+      }
+    });
+    orderItemsNumber.forEach((item) => {
+      const check = item.querySelector("input[type=checkbox]");
+      //const label = item.querySelector("label");
+      const input = item.querySelector("input[type=text]");
+      input.value = '';
+      if (check.checked) {
+        check.checked = false;
+        //appData.servicesNumber[label.textContent] = +input.value;
+      }
+    });
+    //const cloneScreen = screens[0].cloneNode(true);
+    //screens[screens.length - 1].after(cloneScreen);
+    if (screens.length > 1) {
+      for(let j = 1; j < screens.length; j++) {
+        screens[screens.length - j].style.display = 'none';
+      }
+    }
+
+    let select = document.querySelector('select');
+    select.value = 0;
+
+    for(let k = 0; k < totals.length; k++) {
+      totals[k].innerHTML = '';
+    }
+    
   },
   start: function () {
     appData.allDisable();
@@ -151,7 +197,7 @@ const appData = {
       const count = screen.querySelector("input");
       const selectValue = select.options[select.selectedIndex].value;
       const selectName = select.options[select.selectedIndex].textContent;
-      if (selectValue === '' || input.value === 0 || input.value === '') {
+      if (selectValue === '' || input.value === 0 || input.value === '' || selectValue === 0) {
         appData.screens.length = 0;
         return ;
       } else {
@@ -191,6 +237,8 @@ const appData = {
   addScreenBlock: function () {
     const cloneScreen = screens[0].cloneNode(true);
     screens[screens.length - 1].after(cloneScreen);
+    let mainInput = document.querySelector('.main-controls__input input');
+    mainInput.innerHTML = '';
   },
 };
 
