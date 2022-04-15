@@ -4,13 +4,13 @@ const title1 = document.getElementsByTagName("h1")[0];
 const buttons = document.getElementsByClassName("handler_btn");
 const buttonPlus = document.querySelector(".screen-btn");
 
-const inputRange = document.querySelector('.rollback input[type="range');
+const inputRange = document.querySelector('.rollback input[type="range"]');
 const inputRangeValue = document.querySelector(".rollback span.range-value");
 
 let screens = document.querySelectorAll(".screen");
 let screensSelects = document.querySelectorAll('.screen select');
 let screensInputs = document.querySelectorAll('.screen input[type="text"]');
-
+let countScreen = 0;
 const startBtn = buttons[0];
 const resetBtn = buttons[1];
 
@@ -126,7 +126,13 @@ const appData = {
     screensInputs = document.querySelectorAll('.screen input[type="text"]');
     console.log(screensInputs);
 
-
+    let inputMainAll = document.querySelectorAll('input[type="text"]');
+    for(let inputMain of inputMainAll) {
+      inputMain.value = '';
+    }
+    //input[type="text"].innerHTML = '';
+    inputRange.value = 0;
+    inputRangeValue.innerHTML = 0 + '%';
 
     for(let screenInput of screensInputs) {
       screenInput.disabled = false;
@@ -162,7 +168,7 @@ const appData = {
     }
 
     let select = document.querySelector('select');
-    select.value = 0;
+    select.value = "";
 
     for(let k = 0; k < totals.length; k++) {
       totals[k].innerHTML = '';
@@ -237,8 +243,19 @@ const appData = {
   addScreenBlock: function () {
     const cloneScreen = screens[0].cloneNode(true);
     screens[screens.length - 1].after(cloneScreen);
-    let mainInput = document.querySelector('.main-controls__input input');
-    mainInput.innerHTML = '';
+    if (countScreen !== 0) {
+      screens[screens.length - 1].before(cloneScreen);
+
+    }
+    countScreen++;
+    //cloneScreen.before(screens[screens.length - 1]);
+    //if (screens.length > 2) {
+    //  for(let j = 1; j < screens.length; j++) {
+     //   screens[j].after(screens[screens.length - 1]);
+     // }
+    //}
+    //let mainInput1 = document.querySelector('.main-controls__input input');
+    //mainInput1.value = '';
   },
 };
 
