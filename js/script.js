@@ -42,12 +42,21 @@ const appData = {
   count: 0,
   init: function () {
     this.addTitle();
-    this.getRollback();
-    //startBtn.disabled = true;
+    inputRange.addEventListener("input", this.getRollback);
     startBtn.addEventListener("click", this.start);
     buttonPlus.addEventListener("click", this.addScreenBlock);
     resetBtn.addEventListener("click", this.reset);
     //appData.start();
+  },
+  start: function () {
+    appData.allDisable();
+    appData.addScreens();
+    appData.addServices();
+    appData.addPrices();
+    //appData.getServicePercentPrices();
+    //appData.logger();
+    console.log(appData);
+    appData.showResult();
   },
   addTitle: function () {
     document.title = title.textContent;
@@ -78,10 +87,8 @@ const appData = {
       appData.fullPrice - appData.fullPrice * (appData.rollback / 100);
   },
   getRollback: function () {
-    inputRange.addEventListener("input", function () {
-      inputRangeValue.textContent = inputRange.value + "%";
-      appData.rollback = +inputRange.value;
-    });
+    inputRangeValue.textContent = inputRange.value + "%";
+    appData.rollback = +inputRange.value;
   },
 
   getServicePercentPrices: function () {
@@ -99,7 +106,8 @@ const appData = {
     //}
   },
   allDisable: function() {
-    
+    screensSelects = document.querySelectorAll('.screen select');
+    screensInputs = document.querySelectorAll('.screen input[type="text"]');
     for(let screenSelect of screensSelects) {
       screenSelect.disabled = true;
     }
@@ -132,7 +140,7 @@ const appData = {
     }
     //input[type="text"].innerHTML = '';
     inputRange.value = 0;
-    inputRangeValue.innerHTML = 0 + '%';
+    inputRangeValue.textContent = 0 + '%';
 
     for(let screenInput of screensInputs) {
       screenInput.disabled = false;
@@ -161,11 +169,16 @@ const appData = {
     });
     //const cloneScreen = screens[0].cloneNode(true);
     //screens[screens.length - 1].after(cloneScreen);
-    if (screens.length > 1) {
-      for(let j = 1; j < screens.length; j++) {
-        screens[screens.length - j].style.display = 'none';
+    screens.forEach((screen, index) => {
+      if (index !== 0) {
+        screen.remove();
       }
-    }
+    }); 
+    /*if (screens.length > 1) {
+      for(let j = 1; j < screens.length; j++) {
+      screens.length = 1;
+      }
+    }*/
 
     let select = document.querySelector('select');
     select.value = "";
@@ -173,18 +186,23 @@ const appData = {
     for(let k = 0; k < totals.length; k++) {
       totals[k].innerHTML = '';
     }
-    
+    appData.screens.length = 0;
+
+    appData.screenPrice = 0,
+    appData.rollback = 0,
+    appData.adaptive = true,
+    appData.servicesPercent = {},
+    appData.servicesNumber = {},
+    appData.fullPrice = 0,
+    appData.servicePricesPercent = 0,
+    appData.servicePricesNumber = 0,
+    appData.servicePercentPrice = 0,
+    appData.sum0 = 0,
+    appData.count = 0,
+
+    appData.init();
   },
-  start: function () {
-    appData.allDisable();
-    appData.addScreens();
-    appData.addServices();
-    appData.addPrices();
-    //appData.getServicePercentPrices();
-    //appData.logger();
-    console.log(appData);
-    appData.showResult();
-  },
+  
   showResult: function () {
     total.value = appData.screenPrice;
     totalCountOther.value =
@@ -242,20 +260,16 @@ const appData = {
   },
   addScreenBlock: function () {
     const cloneScreen = screens[0].cloneNode(true);
+    const input = cloneScreen.querySelector('input');
+    input.value = '';
+    screens = document.querySelectorAll(".screen");
     screens[screens.length - 1].after(cloneScreen);
-    if (countScreen !== 0) {
-      screens[screens.length - 1].before(cloneScreen);
+    //if (countScreen !== 0) {
+    //  screens[screens.length - 1].before(cloneScreen);
 
-    }
-    countScreen++;
-    //cloneScreen.before(screens[screens.length - 1]);
-    //if (screens.length > 2) {
-    //  for(let j = 1; j < screens.length; j++) {
-     //   screens[j].after(screens[screens.length - 1]);
-     // }
     //}
-    //let mainInput1 = document.querySelector('.main-controls__input input');
-    //mainInput1.value = '';
+    countScreen++;
+
   },
 };
 
