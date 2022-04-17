@@ -14,7 +14,7 @@ let countScreen = 0;
 const startBtn = buttons[0];
 const resetBtn = buttons[1];
 
-const orderItemsPercent = document.querySelectorAll(".other-items.percent");
+let orderItemsPercent = document.querySelectorAll(".other-items.percent");
 
 const orderItemsNumber = document.querySelectorAll(".other-items.number");
 
@@ -132,11 +132,14 @@ const appData = {
       screenSelect.disabled = false;
     }
     screensInputs = document.querySelectorAll('.screen input[type="text"]');
-    console.log(screensInputs);
+    //console.log(screensInputs);
 
-    let inputMainAll = document.querySelectorAll('input[type="text"]');
-    for(let inputMain of inputMainAll) {
-      inputMain.value = '';
+    //let inputMainAll = document.querySelectorAll('input[type="text"]');
+    for(let screenInput of screensInputs) {
+      screenInput.value = '';
+    }
+    for(let tot of totals) {
+      tot.value = '';
     }
     //input[type="text"].innerHTML = '';
     inputRange.value = 0;
@@ -149,8 +152,8 @@ const appData = {
     orderItemsPercent.forEach((item) => {
       const check = item.querySelector("input[type=checkbox]");
       //const label = item.querySelector("label");
-      const input = item.querySelector("input[type=text]");
-      input.value = '';
+      //const input = item.querySelector("input[type=text]");
+      //input.value = '';
       if (check.checked) {
         check.checked = false;
         
@@ -160,8 +163,8 @@ const appData = {
     orderItemsNumber.forEach((item) => {
       const check = item.querySelector("input[type=checkbox]");
       //const label = item.querySelector("label");
-      const input = item.querySelector("input[type=text]");
-      input.value = '';
+      //const input = item.querySelector("input[type=text]");
+      //input.value = '';
       if (check.checked) {
         check.checked = false;
         //appData.servicesNumber[label.textContent] = +input.value;
@@ -236,6 +239,7 @@ const appData = {
     });
   },
   addServices: function () {
+    orderItemsPercent = document.querySelectorAll(".other-items.percent");
     orderItemsPercent.forEach((item) => {
       const check = item.querySelector("input[type=checkbox]");
       const label = item.querySelector("label");
